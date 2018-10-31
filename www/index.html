@@ -7,20 +7,6 @@
     document.addEventListener("deviceready", function() {
       var div = document.getElementById("map_canvas");
 
-      // If your app runs this program on browser,
-      // you need to set `API_KEY_FOR_BROWSER_RELEASE` and `API_KEY_FOR_BROWSER_DEBUG`
-      // before `plugin.google.maps.Map.getMap()`
-      //
-      //   API_KEY_FOR_BROWSER_RELEASE for `https:` protocol
-      //   API_KEY_FOR_BROWSER_DEBUG for `http:` protocol
-      //
-      // If your app does not use browser,
-      // you can comment out this code.
-      plugin.google.maps.environment.setEnv({
-        'API_KEY_FOR_BROWSER_RELEASE': '(YOUR_API_KEY_IS_HERE)',
-        'API_KEY_FOR_BROWSER_DEBUG': ''
-      });
-
       // Create a Google Maps native view under the map_canvas div.
       var map = plugin.google.maps.Map.getMap(div);
 
@@ -28,26 +14,34 @@
       var button = document.getElementById("button");
       button.addEventListener("click", function() {
 
+        var puertaSol = {lat: 40.4167321, lng: 40.4167321, title: "Puerta del sol"};
+        var mallorquina = {lat: 40.4166912, lng: -3.7048091, title: "La mallorquina"};
+        var poiList = [puertaSol, mallorquina];
+
         // Move to the position with animation
         map.animateCamera({
-          target: {lat: 37.422359, lng: -122.084344},
+          target: {lat: puertaSol.lat, lng: puertaSol.lng},
           zoom: 17,
           tilt: 60,
           bearing: 140,
           duration: 5000
         });
 
-        // Add a maker
-        var marker = map.addMarker({
-          position: {lat: 37.422359, lng: -122.084344},
-          title: "Welecome to \n" +
-                 "Cordova GoogleMaps plugin for iOS,Android and Browser!",
-          snippet: "This plugin is awesome!",
-          animation: plugin.google.maps.Animation.BOUNCE
+        poiList.forEach(function(i, poi) {
+          // Add a maker
+          var marker = map.addMarker({
+            position: {lat: poi.lat, lng: poi.lng},
+            title: poi.title,
+            snippet: "This plugin is awesome!",
+            animation: plugin.google.maps.Animation.BOUNCE
+          });
+
+          if (i==0) {
+              // Show the info window
+              marker.showInfoWindow();
+          }
         });
 
-        // Show the info window
-        marker.showInfoWindow();
 
       });
 
@@ -69,9 +63,9 @@
     </style>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Hello, World </h1>
     <div id="map_canvas">
-      <button id="button">Click me!</button>
+      <button id="button">Click me...</button>
     </div>
   </body>
 </html>
