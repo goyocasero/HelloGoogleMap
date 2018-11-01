@@ -48,7 +48,7 @@
 
         // Move to the position with animation
         map.animateCamera({
-          target: {lat: puertaSol.lat, lng: puertaSol.lng},
+          target: {lat: reta.lat, lng: reta.lng},
           zoom: 17,
           tilt: 60,
           bearing: 140,
@@ -56,7 +56,7 @@
         });
 
         poiList.forEach(function(poi, i) {
-
+			console.log("i:" +i);
           // Add a maker
           var marker = map.addMarker({
             position: {lat: poi.lat, lng: poi.lng},
@@ -66,7 +66,7 @@
           });
 
           window.geofence.addOrUpdate({
-              id:             i, //A unique identifier of geofence
+              id:             i+"id", //A unique identifier of geofence
               latitude:       poi.lat, //Geo latitude of geofence
               longitude:      poi.lng, //Geo longitude of geofence
               radius:         15, //Radius of geofence in meters
