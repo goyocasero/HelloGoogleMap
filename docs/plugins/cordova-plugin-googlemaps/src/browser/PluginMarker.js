@@ -1,4 +1,4 @@
-cordova.define("cordova-plugin-googlemaps.PluginMarker", function(require, exports, module) { 
+cordova.define("cordova-plugin-googlemaps.PluginMarker", function(require, exports, module) {
 var utils = require('cordova/utils'),
   event = require('cordova-plugin-googlemaps.event'),
   BaseClass = require('cordova-plugin-googlemaps.BaseClass'),
@@ -386,7 +386,7 @@ PluginMarker.prototype._showInfoWindow = function(marker) {
     html.push(marker.get("title"));
   }
   if (marker.get("snippet")) {
-    html.push('<small>' + marker.get("snippet") + '</small>');
+    html.push('<small> AAAA ' + marker.get("snippet") + '</small>');
   }
   if (html.length > 0) {
     self.infoWnd.setOptions({

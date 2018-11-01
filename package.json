@@ -15,7 +15,13 @@
         "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
         "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
       },
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-add-swift-support": {},
+      "cordova-plugin-geofence": {
+        "GEOFENCE_ALWAYS_USAGE_DESCRIPTION": "${EXECUTABLE_NAME} Would Like to Use Your Current Location Even In Background.",
+        "GEOFENCE_IN_USE_USAGE_DESCRIPTION": "${EXECUTABLE_NAME} Would Like to Use Your Current Location When In Use."
+      }
     }
   },
   "scripts": {
@@ -25,7 +31,12 @@
     "cordova-android": "^7.0.0",
     "cordova-browser": "~5.0.4",
     "cordova-ios": "^4.5.5",
+    "cordova-plugin-add-swift-support": "^1.7.2",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-geofence": "^0.7.0",
     "cordova-plugin-googlemaps": "^2.4.6",
-    "cordova-plugin-whitelist": "1"
+    "cordova-plugin-whitelist": "1",
+    "es6-promise-plugin": "^4.2.2"
   }
 }

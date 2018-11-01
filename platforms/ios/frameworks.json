@@ -1,0 +1,5 @@
+{
+    "AudioToolbox.framework": 1,
+    "libsqlite3.dylib": 1,
+    "WebKit.framework": 1
+}
